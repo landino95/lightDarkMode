@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Creating Graphics</title>
+</head>
+<body>
+    <div>
+        <h1 id='title'>Light</h1>
+        <button id='darkMode' onclick='darkMode()'>Change To Dark Mode</button>
+    </div>
+    <div>
+        <canvas id='canvas' style='background-color: white; opacity: 0.5;' height='50px'; width='50px';></canvas>
+        <p>Canvas</p>
+    </div>
+
+    <div>
+        <svg width='50px' height='50px' id='svg'>
+            <rect width='50px' height='50px' style='fill:white;' />
+            <line x1='0' y1='25' x2='50' y2='25' style='stroke:rgb(255,0,0);stroke-width:10' />
+            <line x1='25' y1='0' x2='25' y2='50' style='stroke:rgb(255,0,0);stroke-width:10' />
+        </svg>
+        <p>SVG</p>
+    </div>
+
+    <div>
+        <img src='cross.jpg' id='jpg'>
+        <p>JPG</p>
+    </div>
+
+    <p>
+        <img src='cross.png' id='png'>
+        <p>PNG</p>
+    </p>
+
+    <div>
+        <img src='cross.gif' id='gif' height='50px' width='50px'>
+        <p>GIF</p>
+    </div>
+</body>
+    <link rel='stylesheet' href='index.css'>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        ctx.beginPath();
+        ctx.strokeStyle = 'red';
+        ctx.moveTo(50, 25);
+        ctx.lineTo(0, 25);
+        ctx.lineWidth = '10';
+        ctx.stroke();
+        ctx.fillStyle='red';
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.strokeStyle = 'red';
+        ctx.moveTo(25, 50);
+        ctx.lineTo(25, 0);
+        ctx.lineWidth = '10';
+        ctx.stroke();
+        ctx.fillStyle='red';
+        ctx.fill();
+
+        //let myRectangle = ctx.getSerializedSvg(true);
+
+        function darkMode() {
+            let title = document.getElementById('title');
+            let buttonText = document.getElementById('darkMode');
+            if (title.innerHTML === 'Light' && buttonText.innerHTML === 'Change To Dark Mode') {
+                title.innerHTML = 'Dark';
+                buttonText.innerHTML = 'Change To Light Mode'
+            } else {
+                title.innerHTML = 'Light';
+                buttonText.innerHTML = 'Change To Dark Mode'
+            }
+            let element = document.body;
+            element.classList.toggle('dark-mode');      
+        }
+            
+    </script>
+</html>

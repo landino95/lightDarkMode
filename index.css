@@ -1,0 +1,12 @@
+img {
+    opacity: 0.5;
+  }
+
+  #svg{
+      opacity: 0.5;
+  }
+
+  .dark-mode {
+    background-color: black;
+    color: white;
+  }
